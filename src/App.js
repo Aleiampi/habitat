@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './Components/Navbar/NavBar';
+import ItemListContainer from './Containers/ItemListContainer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
 
 
       </header>
+      <ItemListContainer greeting={"Coming soon..."} />
     </div>
   );
 }

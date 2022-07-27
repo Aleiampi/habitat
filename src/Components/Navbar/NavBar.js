@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 import './Navbar.css'
+import CartWidget from '../CartWidget/CartWidget';
 
 
 function NavBar () {
@@ -22,8 +23,11 @@ function NavBar () {
               <Nav.Link href="#organization">Organization</Nav.Link>
 
             </Nav>
-
+           
           </Navbar.Collapse>
+
+          <CartWidget />
+                    
         </Container>
       </Navbar>
     )

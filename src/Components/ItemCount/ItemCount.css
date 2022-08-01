@@ -1,0 +1,19 @@
+.itemCount{
+    width: 250px;
+    height: 200px;
+    margin: auto;
+    border: 1px black solid;
+    border-radius: 5%;
+    padding: 25px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.itemCount h2 {
+    margin: auto;
+}
+
+.minusPlus{
+    margin: auto;
+}
+

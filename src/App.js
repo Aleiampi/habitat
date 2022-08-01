@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemCount from './Components/ItemCount/ItemCount';
 import NavBar from './Components/Navbar/NavBar';
 import ItemListContainer from './Containers/ItemListContainer';
 
@@ -12,7 +13,10 @@ function App() {
 
       </header>
       <ItemListContainer greeting={"Coming soon..."} />
+
+      <ItemCount stock={5} initial={1}/>
     </div>
+
   );
 }
 

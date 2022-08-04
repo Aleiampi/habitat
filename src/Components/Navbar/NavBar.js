@@ -17,10 +17,10 @@ function NavBar () {
 
             <Nav >
 
-              <Nav.Link href="#livingroom">Livingroom</Nav.Link>
-              <Nav.Link href="#bedroom">Bedroom</Nav.Link>
-              <Nav.Link href="#kitchen">Kitchen</Nav.Link>
-              <Nav.Link href="#organization">Organization</Nav.Link>
+              <Nav.Link href="#women">Women</Nav.Link>
+              <Nav.Link href="#men">Men</Nav.Link>
+              <Nav.Link href="#jewerly">Jewerly</Nav.Link>
+              <Nav.Link href="#electronics">Electronics</Nav.Link>
 
             </Nav>
            

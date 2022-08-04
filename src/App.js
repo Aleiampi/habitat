@@ -12,7 +12,7 @@ function App() {
 
 
       </header>
-      <ItemListContainer greeting={"Coming soon..."} />
+      <ItemListContainer  />
 
       <ItemCount stock={5} initial={1}/>
     </div>

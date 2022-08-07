@@ -31,7 +31,7 @@ const ItemCount = ({stock, initial}) => {
     return (
 
         <div className="itemCount">
-             <h2> cantidad : {quantity} </h2>
+             <h5> cantidad : {quantity} </h5>
 
              <div className="minusPlus">
                 <Button variant="outline-success" onClick={clickPlus} > + </Button>

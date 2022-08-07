@@ -1,17 +1,47 @@
 import { Card } from "react-bootstrap";
+import AddButton from "../Button/Button";
+import ItemCount from "../ItemCount/ItemCount";
+
 import './Item.css'
 
 export default function Item ({product}) {
 
+    const onAdd = () => {
+ 
+            alert("se agregaron ")
+
+        }
+    
+
     return(
         <Card className="card-item">
             <Card.Img variant="top" src={product.image} className="cardImage"/>
-            <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Text>{product.price}</Card.Text>
+            <Card.Body className="cardBody">
+                <Card.Title className="cardTitle">{product.title}</Card.Title>
+                <Card.Text>$ {product.price}</Card.Text>
+                <AddButton textOnBtn={"Ver mas"} handleClick={onAdd} />
+                <ItemCount />
             </Card.Body>
+           
              
         </Card>
     )
+
+
+
+// return (
+//     <Card  className="card-item" style={{ width: '18rem' }}>
+//       <Card.Img variant="top" src={product.image} lassName="cardImage" />
+//       <Card.Body className="cardBody">
+//         <Card.Title className="cardTitle">{product.title}</Card.Title>
+//         <Card.Text>
+//         {product.price}
+//         </Card.Text>
+//         {/* <Button variant="primary">Ver mas</Button> */}
+//         <AddButton textOnBtn={"Ver mas"} handleClick={onAdd} />
+//       </Card.Body>
+//     </Card>
+//   );
+    
  
 }

@@ -1,0 +1,16 @@
+.itemDetail{
+   width: 80%;
+   margin: auto;
+   display: flex;
+   flex-wrap: nowrap;
+   border: 1px darkgray solid;
+   border-radius: 5px;
+   padding: 15px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.detailImg{
+    width: 300px;
+    padding: 20px;
+}
+

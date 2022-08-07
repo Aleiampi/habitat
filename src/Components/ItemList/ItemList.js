@@ -10,7 +10,7 @@ export default function ItemList ({products}) {
         <Container className="itemList-container">
             {
                 products.map( (product) =>{
-                    return <Item product ={product}  />
+                    return <Item product ={product} key={product.id} />
                 })
             }
         </Container>

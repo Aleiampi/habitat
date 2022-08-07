@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from "react";		
 // import Container from "react-bootstrap/esm/Container";
 import Alert from "react-bootstrap/esm/Alert";
-import ItemList from "../Components/ItemList/ItemList";
+import ItemDetail from "../Components/ItemDetail.js/ItemDetail";
 
 
-export default function ItemListContainer (){		
+
+export default function ItemDetailContainer (){		
 
     const [products, setProducts ] = useState([])
-
+    // const [product, setProduct] = useState ([])
 
     useEffect (()=> {
 
@@ -28,9 +29,13 @@ export default function ItemListContainer (){
     },[])
 
     return(		
-        <>
-   
-        <ItemList products={products} />
-        </>
-    )		
+
+
+        <div>
+        {products.filter(prod => prod.id === 2).map(product => (
+            <ItemDetail product={product} />
+        ))}
+        </div>
+        );
+    	
 }

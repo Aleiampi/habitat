@@ -7,7 +7,10 @@ import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget';
 
 
-function NavBar () {
+function NavBar ({categories}) {
+
+   
+
     return(
         <Navbar bg="light" expand="lg">
         <Container>
@@ -17,10 +20,14 @@ function NavBar () {
 
             <Nav >
 
-              <Nav.Link href="#women">Women</Nav.Link>
+              {categories.map((category)=>{
+                return <Nav.Link href="#">{category}</Nav.Link>
+              })}
+
+              {/* <Nav.Link href="#women">Women</Nav.Link>
               <Nav.Link href="#men">Men</Nav.Link>
               <Nav.Link href="#jewerly">Jewerly</Nav.Link>
-              <Nav.Link href="#electronics">Electronics</Nav.Link>
+              <Nav.Link href="#electronics">Electronics</Nav.Link> */}
 
             </Nav>
            

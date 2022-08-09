@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemCount from './Components/ItemCount/ItemCount';
 import NavBar from './Components/Navbar/NavBar';
 import ItemListContainer from './Containers/ItemListContainer';
@@ -9,20 +10,30 @@ function App() {
 
   const categories = ["Women", "Men", "Jewerly", "Electronics"]
   return (
-    <div className="App">
-      <header className="App-header">
+    <BrowserRouter>
+        <header className="App-header">
+          <NavBar categories={categories} />
+        </header>
 
-        <NavBar categories={categories}/>
+        <Routes>
+          <Route path='/' element={<ItemListContainer/>} />
+          <Route path='/category/:category' element={<ItemListContainer/>} />
+          <Route path="/product/:id" element={<ItemDetailContainer />}/>
+          {/* <Route path="/carrito" element={<Carrito />}/> */}
 
 
-      </header>
-      {/* <ItemListContainer  /> */}
+        </Routes>
+      {/* <div className="App">
+        <header className="App-header">
+          <NavBar categories={categories} />
+        </header>
+        {/* <ItemListContainer  /> */}
 
-      {/* <ItemCount stock={5} initial={1}/> */}
+        {/* <ItemCount stock={5} initial={1}/> 
 
-      <ItemDetailContainer />
-    </div>
-
+        <ItemDetailContainer />
+      </div> */}
+    </BrowserRouter>
   );
 }
 

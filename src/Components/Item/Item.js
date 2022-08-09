@@ -1,16 +1,17 @@
 import { Card } from "react-bootstrap";
 import AddButton from "../Button/Button";
 import ItemCount from "../ItemCount/ItemCount";
-
+import { useNavigate } from "react-router-dom";
 import './Item.css'
 
 export default function Item ({product}) {
 
-    const onAdd = () => {
- 
-            alert("se agregaron ")
+    const navigateFn = useNavigate();
 
-        }
+    const showDetails = () => {
+            navigateFn(`/product/${product.id}`)
+
+  }
     
 
     return(
@@ -19,8 +20,8 @@ export default function Item ({product}) {
             <Card.Body className="cardBody">
                 <Card.Title className="cardTitle">{product.title}</Card.Title>
                 <Card.Text>$ {product.price}</Card.Text>
-                <AddButton textOnBtn={"Ver mas"} handleClick={onAdd} />
-                <ItemCount />
+                <AddButton textOnBtn={"Ver mas"} handleClick={showDetails} />
+                <ItemCount stock={5} initial={1}/>
             </Card.Body>
            
              

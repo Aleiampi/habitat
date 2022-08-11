@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddButton from "../Button/Button";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import './ItemCount.css'
 
 const ItemCount = ({stock, initial}) => {
@@ -19,14 +20,21 @@ const ItemCount = ({stock, initial}) => {
         }
     }
 
+    // const onAdd = () => {
+    //     if (stock === 0 ){
+    //         alert("no hay stock =(")
+    //     }else{
+    //         alert("se agregaron "+ quantity)
+    //         setQuantity (initial)
+    //     }
+    // }
+
+    const navigateToCart = useNavigate();
     const onAdd = () => {
-        if (stock === 0 ){
-            alert("no hay stock =(")
-        }else{
-            alert("se agregaron "+ quantity)
-            setQuantity (initial)
-        }
+        navigateToCart(`/cart`)
+
     }
+
 
     return (
 

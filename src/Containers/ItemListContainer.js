@@ -10,6 +10,7 @@ export default function ItemListContainer (){
 
     const [products, setProducts ] = useState([])
     const { category } = useParams();
+    console.log(category)
 
     useEffect (()=> {
 

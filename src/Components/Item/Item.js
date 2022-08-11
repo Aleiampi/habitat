@@ -22,6 +22,7 @@ export default function Item ({product}) {
                 <Card.Text>$ {product.price}</Card.Text>
                 <AddButton textOnBtn={"Ver mas"} handleClick={showDetails} />
                 <ItemCount stock={5} initial={1}/>
+              
             </Card.Body>
            
              

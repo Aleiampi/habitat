@@ -1,16 +1,8 @@
-import { Card, Container, Image, Row, Col } from "react-bootstrap";
-import AddButton from "../Button/Button";
+import { Container, Image, Row, Col } from "react-bootstrap";
 import ItemCount from "../ItemCount/ItemCount";
 import './ItemDetail.css'
 
 export default function ItemDetail({product}) {
-
-    const onAdd = () => {
- 
-        alert("se agregaron ")
-
-    }
-
 
     return (
      
@@ -26,7 +18,6 @@ export default function ItemDetail({product}) {
                     <ItemCount stock={5} initial={1}/>
                 </Col>
             </Row>
-      
         </Container>
     
     )

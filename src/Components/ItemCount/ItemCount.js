@@ -20,21 +20,11 @@ const ItemCount = ({stock, initial}) => {
         }
     }
 
-    // const onAdd = () => {
-    //     if (stock === 0 ){
-    //         alert("no hay stock =(")
-    //     }else{
-    //         alert("se agregaron "+ quantity)
-    //         setQuantity (initial)
-    //     }
-    // }
-
     const navigateToCart = useNavigate();
     const onAdd = () => {
         navigateToCart(`/cart`)
 
     }
-
 
     return (
 

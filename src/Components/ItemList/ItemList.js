@@ -5,7 +5,6 @@ import './ItemList.css'
 
 export default function ItemList ({products}) {
     
-    // console.log( products)
     return(
         <Container className="itemList-container">
             {

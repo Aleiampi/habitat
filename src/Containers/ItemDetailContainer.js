@@ -5,8 +5,9 @@ import { useParams } from "react-router-dom";
 
 export default function ItemDetailContainer (){		
 
+    const [loading, setLoading] = useState(true)
     const [product, setProduct ] = useState({})
-   const {id} = useParams();
+    const {id} = useParams();
 
     useEffect (()=> {
 
@@ -22,12 +23,15 @@ export default function ItemDetailContainer (){
             .catch( (error) =>{
                 console.log(error)
             })
-        },2000)
+            .finally(() => setLoading(false))
+        },)
     },[id])
 
     return(		
-
-        <ItemDetail product={product} key={product.id}/>
+        <>
+            {loading && "Loading..."}
+            <ItemDetail product={product} key={product.id}/>
+        </>
         );
     	
 }

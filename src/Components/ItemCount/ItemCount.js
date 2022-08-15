@@ -22,7 +22,8 @@ const ItemCount = ({stock, initial}) => {
 
     const navigateToCart = useNavigate();
     const onAdd = () => {
-        navigateToCart(`/cart`)
+        // navigateToCart(`/cart`)
+        console.log("click")
 
     }
 
@@ -36,7 +37,7 @@ const ItemCount = ({stock, initial}) => {
                 <Button variant="outline-danger" onClick={clickMinus} > - </Button>
             </div>
              
-            <AddButton textOnBtn={"Agregar"} handleClick={onAdd} />
+            {/* <AddButton textOnBtn={"Agregar"} handleClick={onAdd} /> */}
         </div>
 
     )

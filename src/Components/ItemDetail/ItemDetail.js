@@ -51,7 +51,7 @@ export default function ItemDetail({product}) {
                     <Col>
                         <h4>{product.title}</h4>
                         <p className="detailDescription"> {product.description}</p>
-                        <ItemCount stock={5} initial={1} />
+                        {/* <ItemCount stock={5} initial={1} /> */}
                         <AddButton textOnBtn={"Go to Cart"} handleClick={toCart} />
                     </Col>
                 </Row>

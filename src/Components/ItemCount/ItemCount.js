@@ -1,10 +1,10 @@
 import { useState } from "react";
-// import AddButton from "../Button/Button";
+import AddButton from "../Button/Button";
 import { Button } from "react-bootstrap";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './ItemCount.css'
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
     const [quantity, setQuantity ] = useState (initial);
 
@@ -27,6 +27,11 @@ const ItemCount = ({stock, initial}) => {
 
     // }
 
+    const confirmarCantidad =()=>{
+        console.log(`confirmar: ${quantity}`)
+        onAdd(quantity)
+    }
+
     return (
 
         <div className="itemCount">
@@ -37,7 +42,7 @@ const ItemCount = ({stock, initial}) => {
                 <Button variant="outline-danger" onClick={clickMinus} > - </Button>
             </div>
              
-            {/* <AddButton textOnBtn={"Agregar"} handleClick={onAdd} /> */}
+            <AddButton textOnBtn={"Agregar"} handleClick={confirmarCantidad} />
         </div>
 
     )

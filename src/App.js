@@ -6,6 +6,7 @@ import ItemListContainer from './Containers/ItemListContainer';
 import Cart from './Components/Cart/Cart';
 import ItemDetailContainer from './Containers/ItemDetailContainer'
 import { useEffect, useState } from 'react';
+import CartProvider from './Context/CartContext';
 
 
 function App() {
@@ -18,19 +19,23 @@ function App() {
     ]
 
   return (
-    <BrowserRouter>
-        <header className="App-header">
-          <NavBar categories={categories} />
-        </header>
+    <CartProvider>
 
-        <Routes>
-          <Route path='/' element={<ItemListContainer/>} />
-          <Route path='/category/:category' element={<ItemListContainer/>} />
-          <Route path="/product/:id" element={<ItemDetailContainer />}/>
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+        <BrowserRouter>
+            <header className="App-header">
+              <NavBar categories={categories} />
+            </header>
 
-    </BrowserRouter>
+            <Routes>
+              <Route path='/' element={<ItemListContainer/>} />
+              <Route path='/category/:category' element={<ItemListContainer/>} />
+              <Route path="/product/:id" element={<ItemDetailContainer />}/>
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+
+        </BrowserRouter>
+        
+    </CartProvider>
   );
 }
 

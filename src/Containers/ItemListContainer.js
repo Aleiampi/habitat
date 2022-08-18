@@ -40,7 +40,7 @@ export default function ItemListContainer (){
                     console.log(error)
                 })
 
-            },2000)
+            },)
 
 
         }

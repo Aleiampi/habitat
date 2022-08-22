@@ -35,13 +35,14 @@ const CartProvider = ({ children }) => {
                 // description : product.details,
                 // stock: product.stock,
                 image: product.image,
-                quantity : quantity,
-                // subtotal : parseInt(product.price)  * parseInt(cantidad) 
+                quantity :  quantity,
+                subtotal : parseInt(product.price)  * parseInt(quantity) 
             }
             console.log(nuevoProd);
             setCartArray([...cartArray, nuevoProd])
             setTotalGastado(totalGastado+(product.price*quantity))
             setTotalItems(totalItems+quantity)
+            console.log("prod en el carrito:" + cartArray)
 
           }
 
@@ -52,7 +53,9 @@ const CartProvider = ({ children }) => {
         // console.log(id);
         setCartArray(updatedCart);
         setTotalGastado(updatedCart.reduce((sum, el)=> sum + el.subtotal, 0))
-        setTotalItems(updatedCart.reduce((sum, el)=> sum + el.cantidad, 0))
+        setTotalItems(updatedCart.reduce((sum, el)=> sum + el.quantity , 0))
+        // setTotalGastado(updatedCart.reduce((sum, el)=> parseInt(sum) + parseInt( el.subtotal), 0))
+        // setTotalItems(updatedCart.reduce((sum, el)=> parseInt(sum )  + parseInt(el.quantity) , 0))
         // console.log(cartArray)
     }
 

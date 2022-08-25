@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";		
 import ItemDetail from "../Components/ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-
+import { db } from "../firebase";
+import { collection, getDoc, doc } from "firebase/firestore"
 
 export default function ItemDetailContainer (){		
 
@@ -9,23 +10,46 @@ export default function ItemDetailContainer (){
     const [product, setProduct ] = useState({})
     const {id} = useParams();
 
-    useEffect (()=> {
+   
+    useEffect(()=>{
 
-        setTimeout(()=>{
+        const collectionProd = collection(db,"products");
+        const docRef = doc(collectionProd, id)
+        const pedido = getDoc(docRef)
+      
+        pedido
+        .then((resultado)=>{
+          // console.log(resultado.id);
+          // console.log(resultado.data());
+          const product = resultado.data()
+          setProduct({...product,id})
+          setLoading(false)
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+      
+          //  getData()
+           
+      },[id])
+   
+    // useEffect (()=> {
 
-            const promise = fetch ('https://fakestoreapi.com/products')
-            promise
-            .then(res => res.json())
-            .then ( (res)=>{
-                let selProduct = res.find(prod => prod.id == id)
-                setProduct (selProduct)
-            })
-            .catch( (error) =>{
-                console.log(error)
-            })
-            .finally(() => setLoading(false))
-        },)
-    },[id])
+    //     setTimeout(()=>{
+
+    //         const promise = fetch ('https://fakestoreapi.com/products')
+    //         promise
+    //         .then(res => res.json())
+    //         .then ( (res)=>{
+    //             let selProduct = res.find(prod => prod.id == id)
+    //             setProduct (selProduct)
+    //         })
+    //         .catch( (error) =>{
+    //             console.log(error)
+    //         })
+    //         .finally(() => setLoading(false))
+    //     },)
+    // },[id])
 
     return(		
         <>

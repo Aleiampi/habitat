@@ -9,9 +9,7 @@ import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar ({categories}) {
 
-   
-
-    return(
+   return(
         <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand as={Link} to={`/`} className='logo'>Habitat</Navbar.Brand>
@@ -22,14 +20,10 @@ function NavBar ({categories}) {
 
               {categories.map((category)=>{
                 return (
-                  // <Link to ={`/category/${category}`}>
-                  //   <Nav.Link>{category}</Nav.Link>
-                  // </Link>
-
+                  
                   <Nav.Link as={Link} to={`/category/${category}`}>{category}</Nav.Link>
                 )
                 
-                // <Nav.Link href="#">{category}</Nav.Link>
               })}
 
             </Nav>

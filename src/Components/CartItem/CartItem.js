@@ -1,10 +1,6 @@
 import React from "react";
-
-import ItemCount from "../ItemCount/ItemCount";
 import  AddButton  from "../Button/Button";
 import { Row, Col, Image } from "react-bootstrap";
-
-// import React from 'react';
 
 export const CartItem = ({ product, deleteItem }) => {
 
@@ -30,9 +26,6 @@ export const CartItem = ({ product, deleteItem }) => {
                 <Col s={1} className="text-center">
                     <p>$ {product.subtotal}</p>
                 </Col>
-                {/* <Col className="col">
-
-                </Col> */}
                 <Col s={1} className="">
                     <AddButton
                     textOnBtn="Borrar item"

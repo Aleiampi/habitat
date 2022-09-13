@@ -26,14 +26,11 @@ const CartProvider = ({ children }) => {
           } else {
             console.log(`Agregaste ${product.title}, cantidad: ${quantity}`);
             const nuevoProd ={
-                // item: product,
                 id : product.id,
                 category: product.category,
                 title: product.title,
                 description: product.description,
                 price: product.price,
-                // description : product.details,
-                // stock: product.stock,
                 image: product.image,
                 quantity :  quantity,
                 subtotal : parseInt(product.price)  * parseInt(quantity) 
@@ -50,13 +47,9 @@ const CartProvider = ({ children }) => {
 
     const deleteFromCart = (id)=>{
         const updatedCart = cartArray.filter(item => item.id !== id);
-        // console.log(id);
         setCartArray(updatedCart);
         setTotalGastado(updatedCart.reduce((sum, el)=> sum + el.subtotal, 0))
         setTotalItems(updatedCart.reduce((sum, el)=> sum + el.quantity , 0))
-        // setTotalGastado(updatedCart.reduce((sum, el)=> parseInt(sum) + parseInt( el.subtotal), 0))
-        // setTotalItems(updatedCart.reduce((sum, el)=> parseInt(sum )  + parseInt(el.quantity) , 0))
-        // console.log(cartArray)
     }
 
     const clearCart = ()=>{
@@ -69,26 +62,13 @@ const CartProvider = ({ children }) => {
         return cartArray.some(element => element.id === id)
     }
 
-    // const totalGastado = () =>{
-    //     return cartArray.reduce((sumatoria, expense) => sumatoria + expense.subtotal, 0)
-    
-    // const precioTotal = () => {
-    //     return cartArray.reduce((accum, el) => accum = accum + (el.price*el.cantidad), 0)
-    // }
-        
-    //   }
-
     const value = {
         cartArray,
         addToCart,
         deleteFromCart,
         clearCart,
-        // precioTotal,
-        // total,
         totalGastado,
-        totalItems
-
-        
+        totalItems    
     }
 
 

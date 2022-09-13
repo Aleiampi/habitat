@@ -21,8 +21,6 @@ export default function Item ({product}) {
                 <Card.Title className="cardTitle">{product.title}</Card.Title>
                 <Card.Text>$ {product.price}</Card.Text>
                 <AddButton textOnBtn={"Ver mas"} handleClick={showDetails} />
-                {/* <ItemCount stock={5} initial={1}/> */}
-              
             </Card.Body>
                  
         </Card>

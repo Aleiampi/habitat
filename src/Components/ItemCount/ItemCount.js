@@ -20,13 +20,6 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
-    // const navigateToCart = useNavigate();
-    // const onAdd = () => {
-    //     // navigateToCart(`/cart`)
-    //     console.log("click")
-
-    // }
-
     const confirmarCantidad =()=>{
         console.log(`confirmar: ${quantity}`)
         onAdd(quantity)

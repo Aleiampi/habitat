@@ -1,24 +1,18 @@
-// import React from 'react'
-// import { Alert } from 'react-bootstrap'
-
-// const Cart = () => {
-//   return (
-//     <Alert>Cart</Alert>
-//   )
-// }
-
-// export default Cart;
 
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import AddButton from "../Button/Button";
-import ItemCount from "../ItemCount/ItemCount";
+// import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { CartItem } from "../CartItem/CartItem";
 import CartSummary from "../CartSummary/CartSummary";
 // import './Cart.css'
 import { Container, Card , Row, Col} from "react-bootstrap";
+
+import { db } from "../../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 
 const Cart = () => {
   const { cartArray } = useContext(CartContext);
@@ -27,6 +21,66 @@ const Cart = () => {
   const { deleteFromCart } = useContext(CartContext);
   const { totalGastado } = useContext(CartContext);
   const { totalItems } = useContext(CartContext);
+
+  const [order, setOrder ] = useState(false)
+  const [orderID, setOrderID] = useState({ id: "" })
+
+  const createOrder = () => {
+
+    const collectionOrders = collection(db,"orders");
+
+    
+
+    const user = {
+      nombre : "Fulano",
+      email : "fulano@mail.com",
+      telefono : "123456789"
+    }
+
+    const order = {
+      user,
+      cartArray,
+      totalGastado,
+      created_at : serverTimestamp()
+
+    }
+
+    const pedido = addDoc(collectionOrders, order)
+
+    // pedido
+    // .then((res)=>{
+    //   console.log(res.id);
+    //   // const identif = res.id
+    //   setOrderID(res.id)
+    //   console.log(orderID)
+    //   console.log(order);
+    // })
+    // .catch((error)=>{
+    //   console.log(error);
+    // })
+
+    pedido
+    .then( (res)=>{
+      setOrder(res)
+      console.log(res.id)
+    setOrderID(res.id)
+    console.log(orderID)
+    // alert(orderID)
+    })
+
+    // setOrder(res)
+    // setOrderID(res.id)
+    // console.log(orderID)
+    // console.log(order)
+    
+  }
+
+  const checkOut = ()=>{
+    createOrder()
+    clearCart()
+    // console.log(order)
+  }
+
 
   return (
 
@@ -83,6 +137,9 @@ const Cart = () => {
         <div className="col">
             <AddButton textOnBtn="Clear cart" handleClick={clearCart} />
           </div>
+          <AddButton textOnBtn="Confrimar compra" handleClick={checkOut} />
+          {order && <p>Orden: {orderID}</p>}
+          
       </Card.Footer>
     </Card>
 

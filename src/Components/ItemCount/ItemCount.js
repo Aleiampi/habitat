@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AddButton from "../Button/Button";
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import './ItemCount.css'
 
 const ItemCount = ({stock, initial, onAdd}) => {

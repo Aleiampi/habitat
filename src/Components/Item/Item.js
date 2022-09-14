@@ -1,6 +1,5 @@
 import { Card } from "react-bootstrap";
 import AddButton from "../Button/Button";
-import ItemCount from "../ItemCount/ItemCount";
 import { useNavigate } from "react-router-dom";
 import './Item.css'
 

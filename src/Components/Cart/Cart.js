@@ -124,7 +124,8 @@ const Cart = () => {
                   <AddButton textOnBtn="Clear cart" handleClick={clearCart} />
                 </div>
                 <div>
-                  <Container>
+                  <Container className="m-2 p-2">
+                    <h4>Please add your info to confirm your order:</h4>
                     <form onSubmit={handleSubmit(userData)}>
                       <input
                         type="text"
